@@ -1,12 +1,9 @@
 import pandas as pd
 
-df = pd.read_json('boys.json')
+boys = pd.read_json("boys.json")
 
-df['birth_date'] = pd.to_datetime(df['birth_date'], format='%Y-%m-%d')
+print(boys.columns)
 
-series = pd.Series(df['birth_date'].values, index=df['name'])
+boys['birthdate'] = pd.to_datetime(boys['birthdate'])
 
-series.to_json('dtm.json')
-
-print("Дати народження успішно записано в dtm.json")
-
+print(boys.head())
